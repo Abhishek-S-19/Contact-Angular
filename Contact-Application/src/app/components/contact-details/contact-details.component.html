@@ -1,0 +1,11 @@
+<div *ngIf="contact" class="details-container">
+    <img *ngIf="contact.profilePic" [src]="contact.profilePic" alt="Profile Pic" width="120" />
+    <h2>{{ contact.name }}</h2>
+    <p>Email: {{ contact.email }}</p>
+    <p>Phone: {{ contact.phone }}</p>
+    <p>Department: {{ contact.department }}</p>
+    <p>Designation: {{ contact.designation }}</p>
+    <p>Purpose of Visit: {{ contact.purpose }}</p>
+    <p>ID Number: {{ contact.idNumber }}</p>
+  </div>
+  

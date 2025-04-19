@@ -1,0 +1,82 @@
+/* Header Styling */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #00796b;
+    color: white;
+    border-radius: 12px;
+    margin: 20px auto;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .header h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+  
+  /* Button Styling */
+  .header button {
+    background-color: #ffffff;
+    color: #00796b;
+    border: none;
+    padding: 12px 24px;
+    margin: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 500;
+  }
+  
+  .header button:hover {
+    background-color: #004d40;
+    color: #ffffff;
+  }
+  
+  /* Message Styling */
+  .success-message,
+  .error-message {
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  
+  .success-message {
+    background-color: #d0f0d3;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+  }
+  
+  .error-message {
+    background-color: #fdecea;
+    color: #d32f2f;
+    border: 1px solid #f44336;
+  }
+  
+  /* Search & Sort Section */
+  .search-sort {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  /* Contact Grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto 40px;
+  }
+  

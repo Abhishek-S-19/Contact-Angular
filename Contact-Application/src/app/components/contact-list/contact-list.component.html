@@ -1,0 +1,29 @@
+<div class="header">
+    <h1>USST Contact Directory</h1>
+    <button routerLink="/add" class="add-btn">+ Add Contact</button>
+    <button (click)="displayAllContacts()">Display All Contacts</button>
+  </div>
+  
+  <!-- Success Message -->
+  <div *ngIf="isContactAdded" class="success-message">
+    <p>Contact added successfully!</p>
+  </div>
+  
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+  
+  <div *ngIf="isDisplayingAllContacts" class="search-sort">
+    <app-search-bar (searchChanged)="onSearch($event)"></app-search-bar>
+    <app-sort-menu (sortChanged)="onSort($event)"></app-sort-menu>
+  </div>
+  
+  <div *ngIf="isDisplayingAllContacts" class="contact-grid">
+    <app-contact-card
+      *ngFor="let contact of filteredContacts"
+      [contact]="contact"
+      (delete)="onDelete(contact._id)">
+    </app-contact-card>
+  </div>
+  

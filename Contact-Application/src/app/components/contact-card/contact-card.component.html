@@ -1,0 +1,20 @@
+<div class="card" (mouseenter)="hover = true" (mouseleave)="hover = false">
+  <h3>{{ contact.name }}</h3>
+
+  <!-- Show details when hovered -->
+  <div class="details" *ngIf="hover">
+    <img *ngIf="contact.profilePic" [src]="'http://localhost:3000' + contact.profilePic" alt="Profile" class="profile-pic" />
+    <p><strong>Email:</strong> {{ contact.email }}</p>
+    <p><strong>Phone:</strong> {{ contact.phone }}</p>
+    <p><strong>Address:</strong> {{ contact.address }}</p>
+    <p><strong>Department:</strong> {{ contact.department }}</p>
+    <p><strong>Designation:</strong> {{ contact.designation }}</p>
+    <p><strong>Purpose of Visit:</strong> {{ contact.purposeOfVisit }}</p>
+    <p><strong>ID No:</strong> {{ contact.identificationNumber }}</p>
+  </div>
+
+  <div class="actions">
+    <button [routerLink]="['/edit', contact._id]">Edit</button>
+    <button (click)="delete.emit(contact._id!)">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<h2>Edit Contact</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" [(ngModel)]="contact.name" name="name" required />
+  </label>
+  <br />
+
+  <label>
+    Email:
+    <input type="email" [(ngModel)]="contact.email" name="email" required />
+  </label>
+  <br />
+
+  <label>
+    Phone:
+    <input type="text" [(ngModel)]="contact.phone" name="phone" required />
+  </label>
+  <br />
+
+  <label>
+    Address:
+    <input type="text" [(ngModel)]="contact.address" name="address" />
+  </label>
+  <br />
+
+  <label>
+    Department:
+    <input type="text" [(ngModel)]="contact.department" name="department" required />
+  </label>
+  <br />
+
+  <label>
+    Designation:
+    <input type="text" [(ngModel)]="contact.designation" name="designation" required />
+  </label>
+  <br />
+
+  <button type="submit">Update Contact</button>
+</form>

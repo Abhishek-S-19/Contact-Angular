@@ -1,0 +1,60 @@
+<form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input [(ngModel)]="contact.name" name="name" id="name" placeholder="Enter Name" required />
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input [(ngModel)]="contact.email" name="email" id="email" placeholder="Enter Email" required />
+    </div>
+  
+    <div>
+      <label for="phone">Phone:</label>
+      <input [(ngModel)]="contact.phone" name="phone" id="phone" placeholder="Enter Phone Number" required />
+    </div>
+  
+    <div>
+      <label for="address">Address:</label>
+      <input [(ngModel)]="contact.address" name="address" id="address" placeholder="Enter Address" />
+    </div>
+  
+    <div>
+      <label for="department">Department:</label>
+      <input [(ngModel)]="contact.department" name="department" id="department" placeholder="Enter Department" required />
+    </div>
+  
+    <div>
+      <label for="designation">Designation:</label>
+      <input [(ngModel)]="contact.designation" name="designation" id="designation" placeholder="Enter Designation" required />
+    </div>
+    
+<div>
+  <label for="purposeOfVisit">Purpose of Visit:</label>
+  <input [(ngModel)]="contact.purposeOfVisit" name="purposeOfVisit" id="purposeOfVisit" placeholder="Enter Purpose" required />
+</div>
+
+<div>
+  <label for="identificationNumber">Identification Number:</label>
+  <input [(ngModel)]="contact.identificationNumber" name="identificationNumber" id="identificationNumber" placeholder="Enter ID Number" required />
+</div>
+
+<div>
+  <label for="profilePicFile">Upload Profile Picture:</label>
+  <input type="file" (change)="onFileSelected($event)" name="profilePicFile" id="profilePicFile" />
+</div>
+
+  
+    <button type="submit">Add Contact</button>
+  
+    <!-- Success Message -->
+    <div *ngIf="isSuccess" class="success-message">
+      <p>Contact added successfully!</p>
+    </div>
+  
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </form>
+  
