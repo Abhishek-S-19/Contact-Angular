@@ -1,0 +1,13 @@
+<div class="modal-overlay" (click)="onClose()"></div>
+<div class="modal-content" (click)="$event.stopPropagation()">
+  <button class="close-btn" (click)="onClose()">✖</button>
+
+  <img *ngIf="contact.profilePic" [src]="'http://localhost:3000' + contact.profilePic" alt="Profile" class="profile-pic" />
+  <h2>{{ contact?.name }}</h2>
+  <p><strong>Email:</strong> {{ contact?.email }}</p>
+  <p><strong>Phone:</strong> {{ contact?.phone }}</p>
+  <p><strong>Address:</strong> {{ contact?.address }}</p>
+  <p><strong>Purpose of Visit:</strong> {{ contact?.purpose }}</p>
+  <p><strong>Identification Number:</strong> {{ contact?.identificationNumber }}</p>
+  <p><strong>Created At:</strong> {{ contact?.createdAt | date:'medium' }}</p>
+</div>

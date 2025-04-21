@@ -46,15 +46,15 @@ const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/yourDatabas
 
 mongoose.connect(mongoURI)
   .then(() => {
-    console.log("✅ MongoDB connected");
+    console.log(" MongoDB connected");
 
     // Start server after DB connection
     const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+      console.log(` Server running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error("❌ MongoDB connection error:", err.message);
+    console.error("MongoDB connection error:", err.message);
     process.exit(1);
   });

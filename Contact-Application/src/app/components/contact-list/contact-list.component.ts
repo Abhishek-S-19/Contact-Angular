@@ -5,6 +5,7 @@ import { ContactService } from '../../contact.service';
 import { ContactCardComponent } from '../contact-card/contact-card.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { SortMenuComponent } from '../sort-menu/sort-menu.component';
+import { ContactModalComponent } from '../../contact-modal/contact-modal.component';
 
 @Component({
   selector: 'app-contact-list',
@@ -14,11 +15,11 @@ import { SortMenuComponent } from '../sort-menu/sort-menu.component';
     RouterModule,
     ContactCardComponent,
     SearchBarComponent,
-    SortMenuComponent
+    SortMenuComponent,
+    ContactModalComponent
   ],
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
-
 })
 export class ContactListComponent {
   private router = inject(Router);
@@ -27,8 +28,9 @@ export class ContactListComponent {
   contacts: any[] = [];
   filteredContacts: any[] = [];
   isDisplayingAllContacts: boolean = false;
-  isContactAdded: boolean = false;  // Flag to show success message
-  errorMessage: string = ''; // Error message to display
+  isContactAdded: boolean = false;
+  errorMessage: string = '';
+  selectedContact: any = null;
 
   ngOnInit() {
     this.contactService.getContacts().subscribe((data) => {
@@ -64,14 +66,21 @@ export class ContactListComponent {
     });
   }
 
-  // Handle the contact adding event
   onAddContact(isAdded: boolean, error?: string) {
     if (isAdded) {
-      this.isContactAdded = true; // Contact added successfully
-      this.errorMessage = ''; // Clear any previous error message
+      this.isContactAdded = true;
+      this.errorMessage = '';
     } else {
-      this.isContactAdded = false; // Contact not added
+      this.isContactAdded = false;
       this.errorMessage = error || 'Contact could not be added!';
     }
+  }
+
+  onContactClick(contact: any) {
+    this.selectedContact = contact;
+  }
+
+  closeModal() {
+    this.selectedContact = null;
   }
 }
