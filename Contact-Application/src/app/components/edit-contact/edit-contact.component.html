@@ -37,5 +37,52 @@
   </label>
   <br />
 
+  <label>
+    Profile Picture URL:
+    <input type="text" [(ngModel)]="contact.profilePic" name="profilePic" />
+  </label>
+  <br />
+  <label>
+    Twitter:
+    <input type="text" [(ngModel)]="contact.socialMediaLinks.twitter" name="twitter" />
+  </label>
+  <br />
+  <label>
+    LinkedIn:
+    <input type="text" [(ngModel)]="contact.socialMediaLinks.linkedin" name="linkedin" />
+  </label>
+
+ 
+
+  <label>
+    Identification Number:
+    <input type="text" [(ngModel)]="contact.identificationNumber" name="identificationNumber" />
+  </label>
+  <br />
+  <h3>Previous Visits</h3>
+  <div *ngFor="let visit of contact.previousVisits; let i = index">
+    {{ visit.date }} - {{ visit.purpose }}
+    <button type="button" (click)="removePreviousVisit(i)">Remove</button>
+  </div>
+  <div>
+    <input type="date" [(ngModel)]="newVisitDate" name="newVisitDate" />
+    <input type="text" [(ngModel)]="newVisitPurpose" placeholder="Purpose" name="newVisitPurpose" />
+    <button type="button" (click)="addPreviousVisit()">Add</button>
+  </div>
+
+  <div>
+    <label for="discussion">Discussion:</label>
+    <textarea
+      [(ngModel)]="contact.discussion"
+      name="discussion"
+      id="discussion"
+      placeholder="Enter discussion details..."
+      rows="5"
+      cols="50"
+      required>
+    </textarea>
+  </div>
+
+  <br />
   <button type="submit">Update Contact</button>
 </form>

@@ -29,19 +29,48 @@
       <input [(ngModel)]="contact.designation" name="designation" id="designation" placeholder="Enter Designation" required />
     </div>
     
-<div>
-  <label for="purposeOfVisit">Purpose of Visit:</label>
-  <input [(ngModel)]="contact.purposeOfVisit" name="purposeOfVisit" id="purposeOfVisit" placeholder="Enter Purpose" required />
-</div>
+ 
 
 <div>
   <label for="identificationNumber">Identification Number:</label>
   <input [(ngModel)]="contact.identificationNumber" name="identificationNumber" id="identificationNumber" placeholder="Enter ID Number" required />
 </div>
+<label>
+  Twitter:
+  <input type="text" [(ngModel)]="contact.socialMediaLinks.twitter" name="twitter" />
+</label>
+<br />
+<label>
+  LinkedIn:
+  <input type="text" [(ngModel)]="contact.socialMediaLinks.linkedin" name="linkedin" />
+</label>
+
+
+<!-- Previous Visits -->
+<div>
+  <h4>previous Visits:</h4>
+  <div *ngFor="let visit of contact.previousVisits; let i = index">
+    <input type="date" [(ngModel)]="visit.date" [name]="'visitDate' + i" />
+    <input type="text" [(ngModel)]="visit.purpose" [name]="'visitPurpose' + i" />
+  </div>
+  <button type="button" (click)="addPreviousVisit()">Add Previous Visit</button>
+</div>
 
 <div>
   <label for="profilePicFile">Upload Profile Picture:</label>
   <input type="file" (change)="onFileSelected($event)" name="profilePicFile" id="profilePicFile" />
+</div>
+<div>
+  <label for="discussion">Discussion:</label>
+  <textarea
+    [(ngModel)]="contact.discussion"
+    name="discussion"
+    id="discussion"
+    placeholder="Enter discussion details..."
+    rows="5"
+    cols="50"
+    required>
+  </textarea>
 </div>
 
   

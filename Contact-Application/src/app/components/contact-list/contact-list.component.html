@@ -30,9 +30,9 @@
   </app-contact-card>
 </div>
 
-<!-- Contact Modal -->
 <app-contact-modal
   *ngIf="selectedContact"
   [contact]="selectedContact"
+  (delete)="onDelete($event)"  
   (closeModal)="closeModal()">
 </app-contact-modal>

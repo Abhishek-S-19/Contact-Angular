@@ -8,9 +8,22 @@ const contactSchema = new mongoose.Schema({
   department: String,
   designation: String,
   profilePic: String,
-  purposeOfVisit: String,
+  socialMediaLinks: {
+    twitter: { type: String, default: '' },
+    linkedin: { type: String, default: '' }
+  },
+  discussion: String,
   identificationNumber: String,
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+
+
+
+  previousVisits: [
+    {
+      date: { type: Date },
+      purpose: { type: String }
+    }
+  ]
 });
 
 module.exports = mongoose.model("Contact", contactSchema);

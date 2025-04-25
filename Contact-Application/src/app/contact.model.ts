@@ -7,7 +7,12 @@ export interface Contact {
   department: string;
   designation: string;
   createdAt?: Date;
-  profilePic?: string; // URL or base64 string
-  purposeOfVisit: string;
+  profilePic?: string; 
+  socialMediaLinks: {
+    twitter: string;
+    linkedin: string;
+  },
+  discussion: string;
   identificationNumber: string;
+previousVisits?: { date: Date; purpose: string }[];
 }

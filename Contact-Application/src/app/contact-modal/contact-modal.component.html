@@ -7,7 +7,50 @@
   <p><strong>Email:</strong> {{ contact?.email }}</p>
   <p><strong>Phone:</strong> {{ contact?.phone }}</p>
   <p><strong>Address:</strong> {{ contact?.address }}</p>
-  <p><strong>Purpose of Visit:</strong> {{ contact?.purpose }}</p>
+  <p><strong>Discussion:</strong> {{ contact?.discussion }}</p>
   <p><strong>Identification Number:</strong> {{ contact?.identificationNumber }}</p>
   <p><strong>Created At:</strong> {{ contact?.createdAt | date:'medium' }}</p>
+  <div *ngIf="contact?.previousVisits?.length">
+    <p><strong>Previous Visits:</strong></p>
+    <ul>
+      <li *ngFor="let visit of contact.previousVisits">
+        Date: {{ visit.date | date: 'mediumDate' }}, Purpose: {{ visit.purpose }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="contact?.socialMediaLinks">
+    <p><strong>Social Media:</strong></p>
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 8px;">
+      <a *ngIf="contact.socialMediaLinks.twitter"
+   [attr.href]="fixUrl(contact.socialMediaLinks.twitter)"
+   target="_blank" rel="noopener noreferrer">
+   <img src="..." alt="" />
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/733/733579.png" 
+          alt="Twitter" 
+          width="32" 
+          height="32" />
+      </a>
+  
+      <a *ngIf="contact.socialMediaLinks.linkedin"
+      [attr.href]="fixUrl(contact.socialMediaLinks.linkedin)"
+   target="_blank" rel="noopener noreferrer">
+   <img src="..." alt="" />
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/174/174857.png" 
+          alt="LinkedIn" 
+          width="32" 
+          height="32" />
+      </a>
+    </div>
+  </div>
+  
+
+  <div class="modal-actions">
+    <button [routerLink]="['/edit', contact._id]">Edit</button>
+    <button (click)="confirmDelete()">Delete</button>
+  </div>
 </div>
+
+

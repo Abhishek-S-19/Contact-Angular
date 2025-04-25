@@ -20,10 +20,15 @@ export class AddContactComponent {
     address: '',
     department: '',
     designation: '',
-    profilePic: '',
-  purposeOfVisit: '',
-  identificationNumber: ''
+    socialMediaLinks: {
+      twitter: '',
+      linkedin: ''
+    },
+    discussion: '',
+    identificationNumber: '',
+    previousVisits: []
   };
+  
 
   
 
@@ -43,6 +48,10 @@ export class AddContactComponent {
       this.contact.profilePic = res.imageUrl; // Save image path to contact
     });
   }
+  addPreviousVisit() {
+    this.contact.previousVisits?.push({ date: new Date(), purpose: '' });
+  }
+  
 
 
   onSubmit() {

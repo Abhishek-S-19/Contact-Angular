@@ -2,10 +2,32 @@
     <img *ngIf="contact.profilePic" [src]="contact.profilePic" alt="Profile Pic" width="120" />
     <h2>{{ contact.name }}</h2>
     <p>Email: {{ contact.email }}</p>
-    <p>Phone: {{ contact.phone }}</p>
+    <p>Phone: {{ contact.phone}}</p>
     <p>Department: {{ contact.department }}</p>
     <p>Designation: {{ contact.designation }}</p>
-    <p>Purpose of Visit: {{ contact.purpose }}</p>
-    <p>ID Number: {{ contact.idNumber }}</p>
+    <p>Purpose of Visit: {{ contact.discussion }}</p>
+    <p>ID Number: {{ contact.identificationNumber }}</p>
+  
+    <div *ngIf="contact.socialMediaLinks && (contact.socialMediaLinks.twitter || contact.socialMediaLinks.linkedin)">
+      <h3>Social Media</h3>
+      <ul>
+        <li *ngIf="contact.socialMediaLinks.twitter">
+          Twitter: <a [href]="contact.socialMediaLinks.twitter" target="_blank">{{ contact.socialMediaLinks.twitter }}</a>
+        </li>
+        <li *ngIf="contact.socialMediaLinks.linkedin">
+          LinkedIn: <a [href]="contact.socialMediaLinks.linkedin" target="_blank">{{ contact.socialMediaLinks.linkedin }}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Previous Visits -->
+    <div *ngIf="contact.previousVisits && contact.previousVisits.length > 0">
+      <h3>Previous Visits</h3>
+      <ul>
+        <li *ngFor="let visit of contact.previousVisits">
+          {{ visit.date }} - {{ visit.purpose }}
+        </li>
+      </ul>
+    </div>
   </div>
   
